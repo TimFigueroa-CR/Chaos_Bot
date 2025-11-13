@@ -9,6 +9,9 @@ Usage:
     pip install websockets==12.0
     python chaos_bot.py --team CHAOS_BOT --url wss://poker-bot-arena.fly.dev/
 
+    # Local A/B testing against the practice server
+    python sample_bot.py --team TEAM_NAME --bot A --url wss://poker-bot-arena.fly.dev/
+
 
 
 This bot randomly switches styles from the following list:
@@ -87,14 +90,14 @@ class ChaosBot:
     def __init__(self):
         self.mode = None
         self.hand_count = 0
-        self.mode_duration = random.randint(5, 15)
+        self.mode_duration = random.randint(2, 5) 
         self.last_action = None
         
     def select_mode(self):
-        """Randomly select a playing mode for the next few hands"""
+        """Randomly select a playing mode for the next few hands(every 2 to 5 hands)"""
         modes = ["maniac", "fancy", "calling_station", "opposite_day", "superstitious", "selective_aggressive"]
         self.mode = random.choice(modes)
-        self.mode_duration = random.randint(4, 10)
+        self.mode_duration = random.randint(2, 5)
         LOGGER.info(f"[CHAOS] Switching to {self.mode.upper()} mode for {self.mode_duration} hands")
         return self.mode
     

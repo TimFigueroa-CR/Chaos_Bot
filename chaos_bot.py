@@ -9,9 +9,6 @@ Usage:
     pip install websockets==12.0
     python chaos_bot.py --team CHAOS_BOT --url wss://poker-bot-arena.fly.dev/
 
-    # Local A/B testing against the practice server
-    python sample_bot.py --team TEAM_NAME --bot A --url wss://poker-bot-arena.fly.dev/
-
 
 
 This bot randomly switches styles from the following list:
