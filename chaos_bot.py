@@ -1,5 +1,7 @@
 
 """
+Chaos Bot By Timothy Figueroa
+
 Chaos Bot: An unpredictable, erratic, manic bot that sets many edge cases to test other bots.
 
 Also, because it's funny.
@@ -8,6 +10,10 @@ Also, because it's funny.
 Usage:
     pip install websockets==12.0
     python chaos_bot.py --team CHAOS_BOT --url wss://poker-bot-arena.fly.dev/
+
+    # Local A/B testing against the practice server
+    python chaos_bot.py --team TEAM_NAME --bot A --url wss://poker-bot-arena.fly.dev/
+    python chaos_bot2.py --team TEAM_NAME --bot B --url wss://poker-bot-arena.fly.dev/
 
 
 
@@ -87,7 +93,7 @@ class ChaosBot:
     def __init__(self):
         self.mode = None
         self.hand_count = 0
-        self.mode_duration = random.randint(5, 15)
+        self.mode_duration = random.randint(4, 10)
         self.last_action = None
         
     def select_mode(self):
